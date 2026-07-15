@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Classes Reference - TW Scroll Effects</title>
+  <link rel="stylesheet" href="./output.css">
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .grid-bg { background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 30px 30px; }
+    .glass-panel { background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); }
+    .code-block { font-family: 'JetBrains Mono', 'Fira Code', monospace; }
+  </style>
+</head>
+<body class="bg-[#0f172a] text-white min-h-screen overflow-x-hidden selection:bg-blue-500/30 flex relative">
+  
+  <!-- Background Elements -->
+  <div class="fixed inset-0 grid-bg opacity-30 z-0 pointer-events-none"></div>
+  <div class="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-600/20 blur-[120px] pointer-events-none z-0"></div>
+  <div class="fixed bottom-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-purple-600/20 blur-[120px] pointer-events-none z-0"></div>
+
+  <!-- Sidebar Navigation -->
+  <aside class="fixed top-0 left-0 h-screen w-72 bg-[#0B1120]/80 backdrop-blur-xl border-r border-slate-800/60 z-50 flex flex-col py-8 px-6 shadow-2xl">
+    <a href="index.html" class="group flex items-center gap-3 text-slate-400 hover:text-white transition-colors mb-12">
+      <div class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center group-hover:bg-slate-700 transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+      </div>
+      <span class="font-bold tracking-wider text-sm uppercase">Dashboard</span>
+    </a>
+    
+    <div class="mb-6">
+      <h2 class="text-2xl font-black text-white">Reference</h2>
+      <p class="text-xs text-blue-400 mt-1 uppercase tracking-widest font-bold">API Documentation</p>
+    </div>
+    
+    <nav class="flex-1 space-y-1 overflow-y-auto pr-2 pb-4">
+      <a href="#entrance" class="block px-4 py-3 text-slate-300 hover:text-white hover:bg-slate-800/50 rounded-xl transition-all font-medium border-l-2 border-transparent hover:border-blue-400">1. Entrance Reveals</a>
+      <a href="#modifiers" class="block px-4 py-3 text-slate-300 hover:text-white hover:bg-slate-800/50 rounded-xl transition-all font-medium border-l-2 border-transparent hover:border-purple-400">2. Modifiers & Stagger</a>
+      <a href="#parallax" class="block px-4 py-3 text-slate-300 hover:text-white hover:bg-slate-800/50 rounded-xl transition-all font-medium border-l-2 border-transparent hover:border-cyan-400">3. CSS Parallax</a>
+      <a href="#text" class="block px-4 py-3 text-slate-300 hover:text-white hover:bg-slate-800/50 rounded-xl transition-all font-medium border-l-2 border-transparent hover:border-emerald-400">4. Text Engine</a>
+      <a href="#image" class="block px-4 py-3 text-slate-300 hover:text-white hover:bg-slate-800/50 rounded-xl transition-all font-medium border-l-2 border-transparent hover:border-orange-400">5. Image & Progress</a>
+      <a href="#interactive" class="block px-4 py-3 text-slate-300 hover:text-white hover:bg-slate-800/50 rounded-xl transition-all font-medium border-l-2 border-transparent hover:border-rose-400">6. Interactive & Snap</a>
+    </nav>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="flex-1 ml-72 relative z-10 px-12 py-20 pb-32 max-w-6xl">
+    
+    <header class="mb-20">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-bold mb-6">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+        v1.0.0 Stable
+      </div>
+      <h1 class="text-6xl font-black mb-6 tracking-tight">Utility Classes</h1>
+      <p class="text-xl text-slate-400 max-w-2xl leading-relaxed">A beautifully structured guide to all utility classes provided by the Tailwind Scroll Effects engine. Use these to build stunning, presentation-ready interfaces.</p>
+    </header>
+
+    <div class="space-y-24">
+      
+      <!-- 1. Entrance Reveals -->
+      <section id="entrance" class="scroll-mt-12">
+        <div class="flex items-center gap-4 mb-8">
+          <div class="w-12 h-12 rounded-2xl bg-blue-500/20 flex items-center justify-center text-blue-400">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 11l7-7 7 7M5 19l7-7 7 7"></path></svg>
+          </div>
+          <h2 class="text-3xl font-bold text-white">Entrance Reveals</h2>
+        </div>
+        
+        <div class="grid grid-cols-1 gap-4">
+          <div class="glass-panel rounded-2xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:bg-slate-800/50 transition-colors">
+            <div>
+              <div class="flex items-center gap-3 mb-2">
+                <code class="code-block text-lg font-bold text-blue-400">scroll-reveal</code>
+                <span class="text-xs font-bold uppercase tracking-wider text-slate-500 bg-slate-800 px-2 py-1 rounded">Base</span>
+              </div>
+              <p class="text-slate-400">Basic fade in effect. Element appears smoothly as it enters the viewport.</p>
+            </div>
+            <div class="md:text-right shrink-0">
+              <div class="w-full md:w-32 h-12 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center text-sm text-slate-500">Preview</div>
+            </div>
+          </div>
+
+          <div class="glass-panel rounded-2xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:bg-slate-800/50 transition-colors">
+            <div>
+              <div class="flex items-center gap-3 mb-2">
+                <code class="code-block text-lg font-bold text-blue-400">scroll-fade-up/down</code>
+              </div>
+              <p class="text-slate-400">Fades in while translating vertically by 50px.</p>
+            </div>
+          </div>
+
+          <div class="glass-panel rounded-2xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:bg-slate-800/50 transition-colors">
+            <div>
+              <div class="flex items-center gap-3 mb-2">
+                <code class="code-block text-lg font-bold text-blue-400">scroll-slide-left/right</code>
+              </div>
+              <p class="text-slate-400">Fades in while translating horizontally by 50px.</p>
+            </div>
+          </div>
+
+          <div class="glass-panel rounded-2xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:bg-slate-800/50 transition-colors">
+            <div>
+              <div class="flex items-center gap-3 mb-2">
+                <code class="code-block text-lg font-bold text-blue-400">scroll-scale</code>
+              </div>
+              <p class="text-slate-400">Fades in and scales up from 0.8 to 1.0.</p>
+            </div>
+          </div>
+          
+          <div class="glass-panel rounded-2xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:bg-slate-800/50 transition-colors">
+            <div>
+              <div class="flex items-center gap-3 mb-2">
+                <code class="code-block text-lg font-bold text-blue-400">scroll-flip</code>
+              </div>
+              <p class="text-slate-400">3D perspective flip reveal (rotateX 90deg to 0).</p>
+            </div>
+          </div>
+
+          <div class="glass-panel rounded-2xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:bg-slate-800/50 transition-colors">
+            <div>
+              <div class="flex items-center gap-3 mb-2">
+                <code class="code-block text-lg font-bold text-blue-400">scroll-blur</code>
+              </div>
+              <p class="text-slate-400">Cinematic unblur effect as the element enters.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Modifiers -->
+      <section id="modifiers" class="scroll-mt-12">
+        <div class="flex items-center gap-4 mb-8">
+          <div class="w-12 h-12 rounded-2xl bg-purple-500/20 flex items-center justify-center text-purple-400">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <h2 class="text-3xl font-bold text-white">Modifiers & Stagger</h2>
+        </div>
+        
+        <div class="grid grid-cols-1 gap-4">
+          <div class="glass-panel rounded-2xl p-6 hover:bg-slate-800/50 transition-colors border-l-4 border-l-purple-500">
+            <div class="flex items-center gap-3 mb-3">
+              <code class="code-block text-lg font-bold text-purple-400">scroll-stagger</code>
+              <span class="text-xs font-bold uppercase tracking-wider text-slate-500 bg-slate-800 px-2 py-1 rounded">Parent</span>
+            </div>
+            <p class="text-slate-400 mb-4">Apply this to a parent container. It automatically adds a cascading delay (100ms) to all direct children that have reveal classes.</p>
+            <div class="bg-[#0f172a] rounded-xl p-4 text-sm font-mono text-slate-300 overflow-x-auto border border-slate-800">
+<span class="text-pink-400">&lt;div</span> <span class="text-green-400">class=</span><span class="text-yellow-300">"scroll-stagger"</span><span class="text-pink-400">&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-green-400">class=</span><span class="text-yellow-300">"scroll-fade-up"</span><span class="text-pink-400">&gt;</span>First<span class="text-pink-400">&lt;/div&gt;</span>
+  <span class="text-pink-400">&lt;div</span> <span class="text-green-400">class=</span><span class="text-yellow-300">"scroll-fade-up"</span><span class="text-pink-400">&gt;</span>Second<span class="text-pink-400">&lt;/div&gt;</span>
+<span class="text-pink-400">&lt;/div&gt;</span>
+            </div>
+          </div>
+
+          <div class="glass-panel rounded-2xl p-6 hover:bg-slate-800/50 transition-colors">
+            <code class="code-block text-lg font-bold text-purple-400 block mb-2">scroll-duration-{ms}</code>
+            <p class="text-slate-400">Override the default animation duration. Example: <code class="text-slate-300">scroll-duration-700</code>.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. CSS Parallax -->
+      <section id="parallax" class="scroll-mt-12">
+        <div class="flex items-center gap-4 mb-8">
+          <div class="w-12 h-12 rounded-2xl bg-cyan-500/20 flex items-center justify-center text-cyan-400">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"></path></svg>
+          </div>
+          <h2 class="text-3xl font-bold text-white">CSS Parallax Engine</h2>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="glass-panel rounded-2xl p-6 hover:bg-slate-800/50 transition-colors">
+            <code class="code-block text-lg font-bold text-cyan-400 block mb-2">scroll-parallax-y-{val}</code>
+            <p class="text-slate-400">Moves Y axis based on scroll timeline. <br><code class="text-slate-500 mt-2 block">Values: 24, 32, [-6rem], [-100px]</code></p>
+          </div>
+          <div class="glass-panel rounded-2xl p-6 hover:bg-slate-800/50 transition-colors">
+            <code class="code-block text-lg font-bold text-cyan-400 block mb-2">scroll-parallax-x-{val}</code>
+            <p class="text-slate-400">Moves X axis based on scroll timeline. <br><code class="text-slate-500 mt-2 block">Values: 24, [-6rem]</code></p>
+          </div>
+          <div class="glass-panel rounded-2xl p-6 hover:bg-slate-800/50 transition-colors">
+            <code class="code-block text-lg font-bold text-cyan-400 block mb-2">scroll-parallax-scale-{val}</code>
+            <p class="text-slate-400">Scales element continuously on scroll.</p>
+          </div>
+          <div class="glass-panel rounded-2xl p-6 hover:bg-slate-800/50 transition-colors">
+            <code class="code-block text-lg font-bold text-cyan-400 block mb-2">scroll-parallax-rotate-{val}</code>
+            <p class="text-slate-400">Rotates element continuously on scroll.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Text Engine -->
+      <section id="text" class="scroll-mt-12">
+        <div class="flex items-center gap-4 mb-8">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 flex items-center justify-center text-emerald-400">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+          </div>
+          <h2 class="text-3xl font-bold text-white">Advanced Text Engine</h2>
+        </div>
+        
+        <div class="grid grid-cols-1 gap-4">
+          <div class="glass-panel rounded-2xl p-6 hover:bg-slate-800/50 transition-colors">
+            <code class="code-block text-lg font-bold text-emerald-400 block mb-2">text-split-words</code>
+            <p class="text-slate-400">Automatically wraps every word in a span and staggers their reveal sequentially.</p>
+          </div>
+          <div class="glass-panel rounded-2xl p-6 hover:bg-slate-800/50 transition-colors">
+            <code class="code-block text-lg font-bold text-emerald-400 block mb-2">text-split-chars</code>
+            <p class="text-slate-400">Wraps every character individually for high-fidelity staggering.</p>
+          </div>
+          <div class="glass-panel rounded-2xl p-6 hover:bg-slate-800/50 transition-colors">
+            <code class="code-block text-lg font-bold text-emerald-400 block mb-2">text-stagger-{ms}</code>
+            <p class="text-slate-400">Overrides the delay between words/chars. (Options: 10, 20, 50, [10-100])</p>
+          </div>
+          <div class="glass-panel rounded-2xl p-6 hover:bg-slate-800/50 transition-colors">
+            <code class="code-block text-lg font-bold text-emerald-400 block mb-2">scroll-text-reveal</code>
+            <p class="text-slate-400">A color-wipe effect (from 20% opacity white to 100% white) mapped precisely to scroll progress.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Image & Progress -->
+      <section id="image" class="scroll-mt-12">
+        <div class="flex items-center gap-4 mb-8">
+          <div class="w-12 h-12 rounded-2xl bg-orange-500/20 flex items-center justify-center text-orange-400">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+          </div>
+          <h2 class="text-3xl font-bold text-white">Images & Indicators</h2>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="glass-panel rounded-2xl p-6 hover:bg-slate-800/50 transition-colors">
+            <code class="code-block text-lg font-bold text-orange-400 block mb-2">image-reveal-{dir}</code>
+            <p class="text-slate-400">Creates a solid block curtain reveal over the element. <br><code class="text-slate-500">Dir: left, right, top, bottom</code></p>
+          </div>
+          <div class="glass-panel rounded-2xl p-6 hover:bg-slate-800/50 transition-colors">
+            <code class="code-block text-lg font-bold text-orange-400 block mb-2">scroll-progress-bar</code>
+            <p class="text-slate-400">Automatically creates a reading-progress bar at the top of the viewport.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. Interactive & Snap -->
+      <section id="interactive" class="scroll-mt-12">
+        <div class="flex items-center gap-4 mb-8">
+          <div class="w-12 h-12 rounded-2xl bg-rose-500/20 flex items-center justify-center text-rose-400">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"></path></svg>
+          </div>
+          <h2 class="text-3xl font-bold text-white">Interactive & Snap</h2>
+        </div>
+        
+        <div class="grid grid-cols-1 gap-4">
+          <div class="glass-panel rounded-2xl p-6 hover:bg-slate-800/50 transition-colors border-l-4 border-l-rose-500">
+            <div class="flex flex-wrap items-center gap-3 mb-3">
+              <code class="code-block text-lg font-bold text-rose-400">snap-active:{utility}</code>
+              <span class="text-xs font-bold uppercase tracking-wider text-slate-500 bg-slate-800 px-2 py-1 rounded">Variant</span>
+              <span class="text-xs font-bold text-yellow-400 bg-yellow-400/10 border border-yellow-400/20 px-2 py-1 rounded">New in V1</span>
+            </div>
+            <p class="text-slate-400 mb-4">A custom Tailwind variant. Triggers the utility ONLY when the element's parent slide snaps into active view.</p>
+            <div class="bg-[#0f172a] rounded-xl p-4 text-sm font-mono text-slate-300 border border-slate-800">
+              <span class="text-green-400">class=</span><span class="text-yellow-300">"opacity-0 blur-md snap-active:opacity-100 snap-active:blur-none"</span>
+            </div>
+          </div>
+
+          <div class="glass-panel rounded-2xl p-6 hover:bg-slate-800/50 transition-colors">
+            <code class="code-block text-lg font-bold text-rose-400 block mb-2">scroll-parallax-track-container</code>
+            <p class="text-slate-400">Parent wrapper (usually tall, e.g. <code class="text-slate-300">h-[250vh]</code>) that acts as the scroll timeline for pinned tracks.</p>
+          </div>
+          
+          <div class="glass-panel rounded-2xl p-6 hover:bg-slate-800/50 transition-colors">
+            <code class="code-block text-lg font-bold text-rose-400 block mb-2">scroll-parallax-track-x / y</code>
+            <p class="text-slate-400">The inner track that translates horizontally (x) or vertically (y) based on the parent container's scroll position.</p>
+          </div>
+
+          <div class="glass-panel rounded-2xl p-6 hover:bg-slate-800/50 transition-colors">
+            <code class="code-block text-lg font-bold text-rose-400 block mb-2">scroll-snap-indicator</code>
+            <p class="text-slate-400">Apply to a scroll container. Automatically injects a slick, sticky vertical dot navigation to track active slides.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script>
+    // Scroll Spy for Sidebar Navigation
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('aside nav a');
+
+      // The colors matching our sections for active states
+      const activeColors = {
+        'entrance': 'border-blue-400 text-white bg-slate-800/50',
+        'modifiers': 'border-purple-400 text-white bg-slate-800/50',
+        'parallax': 'border-cyan-400 text-white bg-slate-800/50',
+        'text': 'border-emerald-400 text-white bg-slate-800/50',
+        'image': 'border-orange-400 text-white bg-slate-800/50',
+        'interactive': 'border-rose-400 text-white bg-slate-800/50'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        // Find the most visible section
+        let maxIntersection = 0;
+        let activeSectionId = null;
+
+        entries.forEach(entry => {
+          if (entry.isIntersecting && entry.intersectionRatio > maxIntersection) {
+            maxIntersection = entry.intersectionRatio;
+            activeSectionId = entry.target.id;
+          }
+        });
+
+        if (activeSectionId) {
+          // Reset all links
+          navLinks.forEach(link => {
+            link.className = 'block px-4 py-3 text-slate-400 hover:text-white hover:bg-slate-800/50 rounded-xl transition-all font-medium border-l-2 border-transparent';
+          });
+
+          // Highlight active link
+          const activeLink = document.querySelector(`aside nav a[href="#${activeSectionId}"]`);
+          if (activeLink) {
+            const activeClassString = activeColors[activeSectionId] || 'border-blue-400 text-white bg-slate-800/50';
+            activeLink.className = `block px-4 py-3 rounded-xl transition-all font-medium border-l-2 ${activeClassString}`;
+          }
+        }
+      }, {
+        rootMargin: '-20% 0px -60% 0px', // Triggers when section is in the top 20-40% of the screen
+        threshold: [0, 0.25, 0.5, 0.75, 1]
+      });
+
+      sections.forEach(section => observer.observe(section));
+    });
+  </script>
+</body>
+</html>

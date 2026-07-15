@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@plugin "../dist/index.js";
+
+@theme {
+  --color-primary: #3b82f6;
+}
