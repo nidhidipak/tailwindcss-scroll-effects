@@ -1,5 +1,7 @@
 # Tailwind CSS Scroll Effects
 
+[![NPM Version](https://img.shields.io/npm/v/tailwindcss-scroll-effects?style=flat-square&logo=npm)](https://www.npmjs.com/package/tailwindcss-scroll-effects) [![NPM Downloads](https://img.shields.io/npm/dt/tailwindcss-scroll-effects?style=flat-square&logo=npm)](https://www.npmjs.com/package/tailwindcss-scroll-effects) [![License](https://img.shields.io/npm/l/tailwindcss-scroll-effects?style=flat-square)](LICENSE) [![Tailwind CSS](https://img.shields.io/badge/Tailwind-v3%20%26%20v4-38BDF8?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
+
 A powerful, zero-dependency Tailwind CSS v4 plugin that brings scroll animations, 3D parallax, pinned horizontal tracks, and advanced SplitText typography engines directly into your utility classes. 
 
 This plugin features a **Hybrid Engine**: It utilizes ultra-fast CSS `animation-timeline` in supported modern browsers, while deploying a fully synchronized, 60fps JavaScript `requestAnimationFrame` fallback for older browsers and advanced effects (like 3D parallax and mouse hybrid tilts) that CSS alone cannot achieve.
