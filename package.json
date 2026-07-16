@@ -6,7 +6,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && node -e \"require('fs').copyFileSync('dist/runtime.js', 'playground/runtime.js')\"",
     "dev": "tsc --watch",
     "dev:playground": "npx @tailwindcss/cli -i playground/input.css -o playground/output.css --watch",
     "prepublishOnly": "npm run build"

@@ -1,4 +1,4 @@
-import { initScrollEffects } from '../dist/runtime.js';
+import { initScrollEffects } from './runtime.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initScrollEffects();
