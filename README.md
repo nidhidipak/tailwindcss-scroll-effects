@@ -187,3 +187,8 @@ Unlike other JS heavy libraries, this plugin minimizes layout thrashing:
 
 ## License
 MIT
+
+
+## 🎨 Demo
+
+[Check out the live demo here!](https://tailwindcss-scroll-effects.vercel.app/)
