@@ -1,6 +1,6 @@
 {
   "name": "tailwindcss-scroll-effects",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Advanced Tailwind CSS plugin for scroll-based animations and parallax effects",
   "type": "module",
   "main": "dist/index.js",
